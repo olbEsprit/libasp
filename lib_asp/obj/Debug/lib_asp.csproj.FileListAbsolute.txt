@@ -1,0 +1,7 @@
+c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\bin\lib_asp.dll
+c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\bin\lib_asp.pdb
+c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\bin\OriginalUserControls v3.3.dll
+c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\bin\OriginalUserControls v3.3.xml
+c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\obj\Debug\lib_asp.csprojResolveAssemblyReference.cache
+c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\obj\Debug\lib_asp.dll
+c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\obj\Debug\lib_asp.pdb
