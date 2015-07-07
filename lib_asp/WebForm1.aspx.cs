@@ -47,6 +47,7 @@ namespace lib_asp
                     }
                 }
                 Copy(nodenod, StoredTree);
+                //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('WTF');", true);
             }
             isBeg = false;
         }
@@ -75,29 +76,35 @@ namespace lib_asp
         {
             filter = txtData.Text;
             if (filter != "")
-            {
-                TreeNode temp = null;
-                    foreach (TreeNode node in nodenod.Nodes)
+            { 
+                foreach (TreeNode node in nodenod.Nodes)
+                {
+                    if (node.Text == filter || node.Text.Contains(filter))
                     {
-                        if (node.Text == filter || node.Text.Contains(filter))
+                        TemporaryTree.Nodes.Add(new TreeNode(node.Text, node.Value));
+                    }
+                    else
+                    {
+                        foreach(TreeNode Child in node.ChildNodes)
                         {
-                            TemporaryTree.Nodes.Add(new TreeNode(node.Text, node.Text));
+                            if(Child.Text == filter || Child.Text.Contains(filter))
+                            {
+                                TemporaryTree.Nodes.Add(new TreeNode(Child.Text, Child.Value));
+                            }
                         }
                     }
-                nodenod.Nodes.Clear();
-                lock(TemporaryTree.Nodes)
-                {
-                    foreach (TreeNode node in TemporaryTree.Nodes)
-                    {
-                        nodenod.Nodes.Add(new TreeNode(node.Text, node.Text));
-                    }
                 }
-            }else
+                nodenod.Nodes.Clear();
+                Copy(TemporaryTree, nodenod);
+                TemporaryTree.Nodes.Clear();
+            }
+            else
             {
                 nodenod.Nodes.Clear();
                 Copy(StoredTree, nodenod);      
             }
             txtData.Text = "";
+            
         }
 
 
