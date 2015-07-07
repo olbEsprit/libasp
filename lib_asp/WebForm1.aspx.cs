@@ -75,6 +75,11 @@ namespace lib_asp
         protected void Submit(object sender, EventArgs e)
         {
             filter = txtData.Text;
+            if(StoredTree.Nodes.Count == nodenod.Nodes.Count)
+            {
+                StoredTree.Nodes.Clear();
+                Copy(nodenod, StoredTree);
+            }
             if (filter != "")
             { 
                 foreach (TreeNode node in nodenod.Nodes)
@@ -128,6 +133,10 @@ namespace lib_asp
             foreach (TreeNode tn in treeview1.Nodes)
             {
                 newTn = new TreeNode(tn.Text, tn.Value);
+                if(tn.Checked)
+                {
+                    newTn.Checked = true;
+                }
                 CopyChilds(newTn, tn);
                 treeview2.Nodes.Add(newTn);
             }
@@ -139,6 +148,10 @@ namespace lib_asp
             foreach (TreeNode tn in willCopied.ChildNodes)
             {
                 newTn = new TreeNode(tn.Text, tn.Value);
+                if (tn.Checked)
+                {
+                    newTn.Checked = true;
+                }
                 parent.ChildNodes.Add(newTn);
             }
         }
