@@ -9,9 +9,6 @@
 <body>
 
 
-
-
-
     <form id="form1" runat="server">
         <div>
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -24,37 +21,15 @@
                 type="text/javascript"></script>
 
             <asp:TreeView ID="nodenod" runat="server" ShowLines="true" ShowCheckBoxes="All" OnTreeNodeCheckChanged="nodenod_TreeNodeCheckChanged">
-                <Nodes>
-                    <asp:TreeNode Value="Home"
-                        Text="Home"
-                        Target="Content"
-                        Expanded="True">
-
-                        <asp:TreeNode Value="Page 1"
-                            Text="Page1"
-                            Target="Content"></asp:TreeNode>
-
-                        <asp:TreeNode Value="Page 2"
-                            Text="Page 2"
-                            Target="Content"></asp:TreeNode>
-
-                    </asp:TreeNode>
-                    <asp:TreeNode Value="Home1"
-                        Text="Home1"
-                        Target="Content"></asp:TreeNode>
-                    <asp:TreeNode Value="Home2"
-                        Text="Home2"
-                        Target="Content"></asp:TreeNode>
-                    <asp:TreeNode Value="Home3"
-                        Text="Home3"
-                        Target="Content"></asp:TreeNode>
-                </Nodes>
             </asp:TreeView>
             <br />
 
         </div>
 
         <asp:Button ID="Button1" Text="Submit" runat="server" OnClick="Submit" />
+
+        <p> </p>
+        <asp:TextBox ID="txtData" runat="server"></asp:TextBox>
     </form>
 
     <script type="text/javascript">
@@ -71,14 +46,24 @@
             }
         });
 
+        $.ajax({
+            url: 'WebForm1.aspx/GetCurrentFilter',
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                $('#filter').text(response.d);
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
     </script>
 
 
 
     <br />
-    <p>
-        Result:
-        <output id="result"></output>
-    </p>
+    <p><output id="result"></output></p>
+    <p><output id="filter"></output></p>
 </body>
 </html>

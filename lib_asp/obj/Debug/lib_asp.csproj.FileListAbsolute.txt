@@ -5,10 +5,22 @@ c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\bin\Origin
 c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\obj\Debug\lib_asp.csprojResolveAssemblyReference.cache
 c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\obj\Debug\lib_asp.dll
 c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\obj\Debug\lib_asp.pdb
+F:\lib_asp\lib_asp\bin\OriginalUserControls v3.3.xml
 F:\lib_asp\lib_asp\bin\lib_asp.dll.config
 F:\lib_asp\lib_asp\bin\lib_asp.dll
 F:\lib_asp\lib_asp\bin\lib_asp.pdb
-F:\lib_asp\lib_asp\bin\OriginalUserControls v3.3.xml
-F:\lib_asp\lib_asp\obj\Debug\lib_asp.csprojResolveAssemblyReference.cache
+F:\lib_asp\lib_asp\bin\Microsoft.Web.Infrastructure.dll
+F:\lib_asp\lib_asp\bin\System.Web.Helpers.dll
+F:\lib_asp\lib_asp\bin\System.Web.Mvc.dll
+F:\lib_asp\lib_asp\bin\System.Web.Razor.dll
+F:\lib_asp\lib_asp\bin\System.Web.WebPages.Deployment.dll
+F:\lib_asp\lib_asp\bin\System.Web.WebPages.dll
+F:\lib_asp\lib_asp\bin\System.Web.WebPages.Razor.dll
+F:\lib_asp\lib_asp\bin\System.Web.Helpers.xml
+F:\lib_asp\lib_asp\bin\System.Web.Mvc.xml
+F:\lib_asp\lib_asp\bin\System.Web.Razor.xml
+F:\lib_asp\lib_asp\bin\System.Web.WebPages.xml
+F:\lib_asp\lib_asp\bin\System.Web.WebPages.Deployment.xml
+F:\lib_asp\lib_asp\bin\System.Web.WebPages.Razor.xml
 F:\lib_asp\lib_asp\obj\Debug\lib_asp.dll
 F:\lib_asp\lib_asp\obj\Debug\lib_asp.pdb
