@@ -29,6 +29,7 @@
         <asp:Button ID="Button1" Text="Submit" runat="server" OnClick="Submit" />
 
         <p> </p>
+        <h4>Filter:</h4>
         <asp:TextBox ID="txtData" runat="server"></asp:TextBox>
     </form>
 
@@ -63,7 +64,9 @@
 
 
     <br />
-    <p><output id="result"></output></p>
-    <p><output id="filter"></output></p>
+    <h4>Submitted:</h4>
+    <output id="result"></output>
+    <h4>Filtered by:</h4>
+    <output id="filter"></output>
 </body>
 </html>
