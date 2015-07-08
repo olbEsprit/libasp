@@ -4,41 +4,19 @@
         <name>OriginalUserControls v3.3</name>
     </assembly>
     <members>
-        <member name="T:OriginalUserControls.Properties.Resources">
+        <member name="M:OriginalUserControls.Actualite.getActualiteName(System.Data.DataRow)">
             <summary>
-              A strongly-typed resource class, for looking up localized strings, etc.
+            Повертає актуальність для рядка з полем vcActualityType
             </summary>
+            <param name="row">рядок</param>
+            <returns>enum (перелік)</returns>
         </member>
-        <member name="P:OriginalUserControls.Properties.Resources.ResourceManager">
+        <member name="M:OriginalUserControls.Actualite.getActualiteCode(OriginalUserControls.enActualite)">
             <summary>
-              Returns the cached ResourceManager instance used by this class.
+            повертає код актуальності за іменем
             </summary>
-        </member>
-        <member name="P:OriginalUserControls.Properties.Resources.Culture">
-            <summary>
-              Overrides the current thread's CurrentUICulture property for all
-              resource lookups using this strongly typed resource class.
-            </summary>
-        </member>
-        <member name="P:OriginalUserControls.Properties.Resources.check_all">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:OriginalUserControls.Properties.Resources.check_all3">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="P:OriginalUserControls.Properties.Resources.select">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
-        <member name="T:OriginalUserControls.CTB_SubdivType">
-            <summary>
-            Елемент ComboTreeBox з типами підрозділів!
-            </summary>
+            <param name="actualite">ім"я з перечислення enActualite</param>
+            <returns>0 або 1</returns>
         </member>
         <member name="T:OriginalUserControls.ComboTreeBox_Advanced">
             <summary>
@@ -642,16 +620,64 @@
             Якщо побудоване дерево не актуальне - то це поле показує, на який момент часу відображаєтсья дерево
             </summary>
         </member>
-        <member name="M:OriginalUserControls.CTB_SubdivType.#ctor">
+        <member name="T:OriginalUserControls.SelectedItemChangedDelegate">
             <summary>
-            Створення КомбоТріБоксу з типами підрозділів.
+            Делегат для реалізації події зміни значення в контролі
+            </summary>
+            <param name="sender">Делегат відправляє один параметр - об"єкт типу ComboTreeBox_Advanced, який показує, який контрол відправив подію</param>
+        </member>
+        <member name="T:OriginalUserControls.ParallelNodeIsNullException">
+            <summary>
+            Помилка, що виникає, коли в ноді не прописаний відповідний паралельний нод з "паралельного" дерева
+            </summary>
+        </member>
+        <member name="T:OriginalUserControls.CanNotBeSetValueException">
+            <summary>
+            переривання виникає, якщо неможливо встановити деякі значення для контролу за допомогою функцій SetSelectedOneItem і SetSelectedmanyItems
+            </summary>
+        </member>
+        <member name="P:OriginalUserControls.CanNotBeSetValueException.ValuesId">
+            <summary>
+            Значення Id, які не вдалося знайтив  контролі
+            </summary>
+        </member>
+        <member name="P:OriginalUserControls.CanNotBeSetValueException.ControlType">
+            <summary>
+            Ім"я контрола, в якому не вдалося встановити значення
+            </summary>
+        </member>
+        <member name="P:OriginalUserControls.CanNotBeSetValueException.Message">
+            <summary>
+            Повідомлення переривання
+            </summary>
+        </member>
+        <member name="T:OriginalUserControls.ComboTreeBox_Simple">
+            <summary>
+            Простий ComboTreeBox, в ньому немає мультивибору та фільтру.
+            Є тільки поле SelectedId, для отримання вибраного елементу
+            Пронаслідувано від абстракного базового класу ComboTreeBox_Base
+            </summary>
+        </member>
+        <member name="P:OriginalUserControls.ComboTreeBox_Simple.SelectedId">
+            <summary>
+            Id Обраного елементу в дереві комбобокса
+            </summary>
+        </member>
+        <member name="T:OriginalUserControls.CTB_Duties">
+            <summary>
+            Елемент ComboTreeBox з посадами!
+            </summary>
+        </member>
+        <member name="M:OriginalUserControls.CTB_Duties.#ctor">
+            <summary>
+            Створення елементу з посадами.
             Параметри по замовченню:
             1. без мультивибору.
             2. Фільтр показуєтсья якщо елементів в деерві більше 20
             3. Cпосіб відображення вибраного елементу - ім"я ноди
             </summary>
         </member>
-        <member name="M:OriginalUserControls.CTB_SubdivType.#ctor(System.Boolean)">
+        <member name="M:OriginalUserControls.CTB_Duties.#ctor(System.Boolean)">
             <summary>
             Створення елементу з посадами.
             Параметри по замовченню:
@@ -660,129 +686,254 @@
             </summary>
             <param name="isCheckBoxes">вмикає мультивибір в дереві</param>
         </member>
-        <member name="M:OriginalUserControls.CTB_SubdivType.#ctor(System.Boolean,System.Int32)">
+        <member name="M:OriginalUserControls.CTB_Duties.#ctor(System.Boolean,System.Int32)">
             <summary>
-            Створення КомбоТріБоксу з типами підрозділів.
+            Створення елементу з посадами.
             Параметри по замовченню:
             3. Cпосіб відображення вибраного елементу - ім"я ноди
             </summary>
             <param name="isCheckBoxes">вмикає мультивибір в дереві</param>
             <param name="showFilterAfterNodeCount">Показувати поле фільтру після цієї кількості елементів в дереві</param>
         </member>
-        <member name="M:OriginalUserControls.CTB_SubdivType.#ctor(System.Boolean,OriginalUserControls.SelectedItemView)">
+        <member name="M:OriginalUserControls.CTB_Duties.#ctor(System.Boolean,OriginalUserControls.SelectedItemView)">
             <summary>
-            Створення КомбоТріБоксу з типами підрозділів.
+            Створення елементу з посадами.
             Параметри по замовченню:
             2. Фільтр показуєтсья якщо елементів в деерві більше 20
             </summary>
             <param name="isCheckBoxes">включає мультивибір в дереві</param>
             <param name="selectedItemView">Cпосіб відображення вибраного елементу</param>
         </member>
-        <member name="M:OriginalUserControls.CTB_SubdivType.#ctor(System.Boolean,System.Int32,OriginalUserControls.SelectedItemView)">
+        <member name="M:OriginalUserControls.CTB_Duties.#ctor(System.Boolean,System.Int32,OriginalUserControls.SelectedItemView)">
             <summary>
-            Створення КомбоТріБоксу з типами підрозділів.
+            Створення елементу з посадами.
             </summary>
             <param name="isCheckBoxes">включає мультивибір в дереві</param>
             <param name="showFilterAfterNodeCount">Показувати поле фільтру після цієї кількості елементів в дереві</param>
             <param name="selectedItemView">Cпосіб відображення вибраного елементу</param>
         </member>
-        <member name="M:OriginalUserControls.CTB_SubdivType.FillTree(System.Data.SqlClient.SqlConnection)">
+        <member name="M:OriginalUserControls.CTB_Duties.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean)">
             <summary>
-            Функція наповнення дерева типами підрозділів
-            Наповнення відбуваєтсья з таблиці "DcSubdivisionType"
+            Функція наопвнення дерева в елементі, на сьогоднішній день
+            Політика безпеки (фільтрація повного дерева) вимкнена
             </summary>
-            <param name="connToDb">під"єднання до бази</param>
+            <param name="connToDb">Під"єднання до бази з даними</param>
+            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
         </member>
-        <member name="M:OriginalUserControls.CTB_SubdivType.FillTree(System.Data.SqlClient.SqlConnection,System.String)">
+        <member name="M:OriginalUserControls.CTB_Duties.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32)">
             <summary>
-            Функція наповнення дерева типами підрозділів
+            Функція наопвнення дерева в елементі, на сьогоднішній день
+            Політика безпеки ввімкнена, дерево фільтруєтсья одним елементом
             </summary>
-            <param name="connToDb">під"єднання до бази</param>
-            <param name="tableName">можна вказати таблицю, в якій зберігаютсья типи підрозділів</param>
+            <param name="connToDb">Під"єднання до бази з даними</param>
+            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
+            <param name="filterNodeId">Політика безпеки: Id піддререва, що буде видиме в дереві</param>
         </member>
-        <member name="M:OriginalUserControls.CTB_SubdivType.DataBind(System.Data.SqlClient.SqlConnection,System.String)">
-             <summary>
-            Прив"язка до даних і створення таблиці і її наповнення для дерева
-             </summary>
-        </member>
-        <member name="M:OriginalUserControls.CTB_SubdivType.TypeIsVirtual(System.Int32)">
+        <member name="M:OriginalUserControls.CTB_Duties.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32[])">
             <summary>
-            Повертає значення віртуальний чи реальний підрозділ
+            Функція наопвнення дерева в елементі, на сьогоднішній день
+            Політика безпеки ввімкнена, дерево фільтруєтсья масивом елементів
             </summary>
-            <param name="typeId">Ід типу підрозділа</param>
+            <param name="connToDb">Під"єднання до бази з даними</param>
+            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
+            <param name="filterNodeIds">Політика безпеки: Id піддререв, що будуть видимі в дереві</param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_Duties.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.DateTime)">
+            <summary>
+            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
+            Політика безпеки (фільтрація повного дерева) вимкнена
+            </summary>
+            <param name="connToDb">Під"єднання до бази з даними</param>
+            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
+            <param name="dateActuality">дата, на яку удуєтсья довідник</param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_Duties.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32,System.DateTime)">
+            <summary>
+            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
+            Політика безпеки ввімкнена, дерево фільтруєтсья одним елементом
+            </summary>
+            <param name="connToDb">Під"єднання до бази з даними</param>
+            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
+            <param name="filterNodeId">Політика безпеки: Id піддререва, що буде видиме в дереві</param>
+            <param name="dateActuality">дата, на яку удуєтсья довідник</param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_Duties.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32[],System.DateTime)">
+            <summary>
+            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
+            Політика безпеки ввімкнена, дерево фільтруєтсья масивом елементів
+            </summary>
+            <param name="connToDb">Під"єднання до бази з даними</param>
+            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
+            <param name="filterNodeIds">Політика безпеки: Id піддререв, що будуть видимі в дереві</param>
+            <param name="dateActuality">дата, на яку удуєтсья довідник</param>
+        </member>
+        <member name="T:OriginalUserControls.CTB_DutiesAndCode">
+            <summary>
+            Контрол для нового довідника посад, який включає посади і коди посад
+            </summary>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.#ctor">
+            <summary>
+            Створення елементу з посадами.
+            Параметри по замовченню:
+            1. без мультивибору.
+            2. Фільтр показуєтсья якщо елементів в деерві більше 20
+            3. Cпосіб відображення вибраного елементу - ім"я ноди
+            </summary>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.#ctor(System.Boolean)">
+            <summary>
+            Створення елементу з посадами.
+            Параметри по замовченню:
+            2. Фільтр показуєтсья якщо елементів в деерві більше 20
+            3. Cпосіб відображення вибраного елементу - ім"я ноди
+            </summary>
+            <param name="isCheckBoxes">вмикає мультивибір в дереві</param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.#ctor(System.Boolean,System.Int32)">
+            <summary>
+            Створення елементу з посадами.
+            Параметри по замовченню:
+            3. Cпосіб відображення вибраного елементу - ім"я ноди
+            </summary>
+            <param name="isCheckBoxes">вмикає мультивибір в дереві</param>
+            <param name="showFilterAfterNodeCount">Показувати поле фільтру після цієї кількості елементів в дереві</param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.#ctor(System.Boolean,OriginalUserControls.SelectedItemView)">
+            <summary>
+            Створення елементу з посадами.
+            Параметри по замовченню:
+            2. Фільтр показуєтсья якщо елементів в деерві більше 20
+            </summary>
+            <param name="isCheckBoxes">включає мультивибір в дереві</param>
+            <param name="selectedItemView">Cпосіб відображення вибраного елементу</param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.#ctor(System.Boolean,System.Int32,OriginalUserControls.SelectedItemView)">
+            <summary>
+            Створення елементу з посадами.
+            </summary>
+            <param name="isCheckBoxes">включає мультивибір в дереві</param>
+            <param name="showFilterAfterNodeCount">Показувати поле фільтру після цієї кількості елементів в дереві</param>
+            <param name="selectedItemView">Cпосіб відображення вибраного елементу</param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean)">
+            <summary>
+            Функція наопвнення дерева в елементі, яке активне на даний момент
+            Політика безпеки вимкнена - дерево повне.
+            </summary>
+            <param name="connToDb">Під"єднання до бази з даними</param>
+            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32)">
+            <summary>
+            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
+            Політика безпеки ввімкнена, дерево фільтруєтсья одним елементом
+            </summary>
+            <param name="connToDb">Під"єднання до бази з даними</param>
+            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
+            <param name="filterNodeId">Політика безпеки: Id піддререва, що буде видиме в дереві</param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32[])">
+            <summary>
+            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
+            Політика безпеки ввімкнена, дерево фільтруєтсья масивом елементів
+            </summary>
+            <param name="connToDb">Під"єднання до бази з даними</param>
+            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
+            <param name="filterNodeIds">Політика безпеки: Id піддререв, що будуть видимі в дереві</param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.DateTime)">
+            <summary>
+            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
+            Політика безпеки вимкнена - дерево повне.
+            </summary>
+            <param name="connToDb">Під"єднання до бази з даними</param>
+            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
+            <param name="dateActuality">дата, на яку удуєтсья довідник</param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32,System.DateTime)">
+            <summary>
+            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
+            Політика безпеки ввімкнена, дерево фільтруєтсья одним елементом
+            </summary>
+            <param name="connToDb">Під"єднання до бази з даними</param>
+            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
+            <param name="filterNodeId">Політика безпеки: Id піддререва, що буде видиме в дереві</param>
+            <param name="dateActuality">дата, на яку удуєтсья довідник</param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32[],System.DateTime)">
+            <summary>
+            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
+            Політика безпеки ввімкнена, дерево фільтруєтсья масивом елементів
+            </summary>
+            <param name="connToDb">Під"єднання до бази з даними</param>
+            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
+            <param name="filterNodeIds">Політика безпеки: Id піддререв, що будуть видимі в дереві</param>
+            <param name="dateActuality">дата, на яку удуєтсья довідник</param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.CreateCodesForAllDuties(System.Data.DataRow,System.String,OriginalUserControls.TreeNodeExt,System.Data.DataTable,System.DateTime,System.Collections.Generic.List{OriginalUserControls.TreeNodeExt})">
+            <summary>
+            Пошук активних кодів для попередніх назв посади.
+            </summary>
+            <param name="dutiesRow"></param>
+            <param name="primaryKeyColumn"></param>
+            <param name="dutiesNode"></param>
+            <param name="dt_Duties_Full"></param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.CreateCodesForDuty(System.Int32,OriginalUserControls.TreeNodeExt,System.DateTime,System.Collections.Generic.List{OriginalUserControls.TreeNodeExt})">
+            <summary>
+            Створення кодів для Посади з RtDutiesId
+            </summary>
+            <param name="RtDutiesId"></param>
+            <param name="dutiesNode"></param>
+            <param name="dateActuality"></param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.CheckDateIn_DutiesCode_And_CodeActual(System.Data.DataRow)">
+            <summary>
+            перевірка чи немає конфліктів по датам між парами посада-код і самими кодами.
+            </summary>
+            <param name="RtDutiesCodeRow"></param>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.GetActualCode(System.Int32,System.DateTime)">
+            <summary>
+            перевірка чи код не змінював назву і актуальний, якщо ні - пошук і повернення актуаального коду
+            </summary>
+        </member>
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.DutiesIsActual(System.Data.DataRow,System.String,System.DateTime)">
+            <summary>
+            Функція перевіряє чи активна посада в певну дату.
+            true - активна, false - неактивна
+            </summary>
+            <param name="row"></param>
+            <param name="primaryKeyColumn"></param>
+            <param name="checkDate"></param>
             <returns></returns>
         </member>
-        <member name="T:OriginalUserControls.SelectedTreeItem">
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.DutiesCodeIsActual(System.Data.DataRow,System.DateTime)">
             <summary>
-            Клас описує вибраний елемент в дереві.
-            Для сутностей, елементи яких складаються з багатьох нод
+            Функція перевіряє чи актуальна пара "посада-код" по даті на момент дати @date
+            якщо актуальна - True, інакше - False
             </summary>
+            <param name="RtDutiesCodeRow"></param>
+            <param name="date"></param>
+            <returns></returns>
         </member>
-        <member name="F:OriginalUserControls.SelectedTreeItem.Id">
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.CodeIsActual(System.Data.DataRow,System.DateTime)">
             <summary>
-            Id обраного елементу в дереві (не ноди, а всього елементу)
+            Функція перевіряє чи актуальний код по даті на момент дати @date
+            якщо актуальна - True, інакше - False
             </summary>
+            <param name="RtDutiesCodeRow"></param>
+            <param name="date"></param>
+            <returns></returns>
         </member>
-        <member name="F:OriginalUserControls.SelectedTreeItem.FullName">
+        <member name="M:OriginalUserControls.CTB_DutiesAndCode.GetCodeRow(System.Int32)">
             <summary>
-            Повна назва сутності (назва з "RT таблиці")
-            
-            Приклад з посадами: нода = інженер, піднода = метролог, підпіднода - головний
-            NodeName = "головний"
-            CompoundName = "інженер\\метролог\\головний"
-            FullName = "головний інженер метролог"
-            ShortName = "гол. інж. метрол."
+            Функція повертає рядок Коду по Id коду
+            NULL ніколи не повертає, якщо незнайденл код - то помилка
             </summary>
-        </member>
-        <member name="F:OriginalUserControls.SelectedTreeItem.ShortName">
-            <summary>
-            Скорочена назва сутності (назва з "RT таблиці")
-            
-            Приклад з посадами: нода = інженер, піднода = метролог, підпіднода - головний
-            NodeName = "головний"
-            CompoundName = "інженер\\метролог\\головний"
-            FullName = "головний інженер метролог"
-            ShortName = "гол. інж. метрол."
-            </summary>
-        </member>
-        <member name="F:OriginalUserControls.SelectedTreeItem.Abbreviation">
-            <summary>
-            Аббревіатура сутності (назва з "RT таблиці")
-            
-            Приклад з посадами: нода = інженер, піднода = метролог, підпіднода - головний
-            NodeName = "головний"
-            CompoundName = "інженер\\метролог\\головний"
-            FullName = "головний інженер метролог"
-            ShortName = "гол. інж. метрол."
-            </summary>
-        </member>
-        <member name="F:OriginalUserControls.SelectedTreeItem.NodeName">
-            <summary>
-            Назва ноди в дереві.
-            </summary>
-        </member>
-        <member name="F:OriginalUserControls.SelectedTreeItem.CompoundName">
-            <summary>
-            Складена назва обраної сутності в дереві.
-            Назва складаєтсья назв нодів
-            </summary>
-        </member>
-        <member name="M:OriginalUserControls.SelectedTreeItem.#ctor(System.Int32,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Створення сутності для вибраної ноди
-            </summary>
-            <param name="id">Id сутності</param>
-            <param name="text">Назва сутності з RT табл</param>
-            <param name="compoundName">Складена з нодів назва сутності </param>
-            <param name="fullName">Повна назва сутності (з RT таблиці) </param>
-            <param name="shortName">Скорочена назва сутності (з RT таблиці) </param>
-            <param name="abbreviation">Абревіатура сутності (з RT таблиці) </param>
-        </member>
-        <member name="T:OriginalUserControls.SelectedItemView">
-            <summary>
-            перечислення, що показує, які бувають варіанти відображення вибраного елементу в ComboTreeBox
-            Тобто після вибору в комбобоксі відображається назва ноду, складена назва чи "повна назва" з RT таблиці
-            </summary>
+            <param name="RtCodeId"></param>
+            <returns></returns>
         </member>
         <member name="T:OriginalUserControls.CTB_Subdivision">
             <summary>
@@ -1147,33 +1298,21 @@
             <param name="actualite">ім"я з перечислення enEventType</param>
             <returns>0 або 1</returns>
         </member>
-        <member name="T:OriginalUserControls.ComboTreeBox_Simple">
+        <member name="T:OriginalUserControls.CTB_SubdivType">
             <summary>
-            Простий ComboTreeBox, в ньому немає мультивибору та фільтру.
-            Є тільки поле SelectedId, для отримання вибраного елементу
-            Пронаслідувано від абстракного базового класу ComboTreeBox_Base
+            Елемент ComboTreeBox з типами підрозділів!
             </summary>
         </member>
-        <member name="P:OriginalUserControls.ComboTreeBox_Simple.SelectedId">
+        <member name="M:OriginalUserControls.CTB_SubdivType.#ctor">
             <summary>
-            Id Обраного елементу в дереві комбобокса
-            </summary>
-        </member>
-        <member name="T:OriginalUserControls.CTB_DutiesAndCode">
-            <summary>
-            Контрол для нового довідника посад, який включає посади і коди посад
-            </summary>
-        </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.#ctor">
-            <summary>
-            Створення елементу з посадами.
+            Створення КомбоТріБоксу з типами підрозділів.
             Параметри по замовченню:
             1. без мультивибору.
             2. Фільтр показуєтсья якщо елементів в деерві більше 20
             3. Cпосіб відображення вибраного елементу - ім"я ноди
             </summary>
         </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.#ctor(System.Boolean)">
+        <member name="M:OriginalUserControls.CTB_SubdivType.#ctor(System.Boolean)">
             <summary>
             Створення елементу з посадами.
             Параметри по замовченню:
@@ -1182,192 +1321,160 @@
             </summary>
             <param name="isCheckBoxes">вмикає мультивибір в дереві</param>
         </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.#ctor(System.Boolean,System.Int32)">
+        <member name="M:OriginalUserControls.CTB_SubdivType.#ctor(System.Boolean,System.Int32)">
             <summary>
-            Створення елементу з посадами.
+            Створення КомбоТріБоксу з типами підрозділів.
             Параметри по замовченню:
             3. Cпосіб відображення вибраного елементу - ім"я ноди
             </summary>
             <param name="isCheckBoxes">вмикає мультивибір в дереві</param>
             <param name="showFilterAfterNodeCount">Показувати поле фільтру після цієї кількості елементів в дереві</param>
         </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.#ctor(System.Boolean,OriginalUserControls.SelectedItemView)">
+        <member name="M:OriginalUserControls.CTB_SubdivType.#ctor(System.Boolean,OriginalUserControls.SelectedItemView)">
             <summary>
-            Створення елементу з посадами.
+            Створення КомбоТріБоксу з типами підрозділів.
             Параметри по замовченню:
             2. Фільтр показуєтсья якщо елементів в деерві більше 20
             </summary>
             <param name="isCheckBoxes">включає мультивибір в дереві</param>
             <param name="selectedItemView">Cпосіб відображення вибраного елементу</param>
         </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.#ctor(System.Boolean,System.Int32,OriginalUserControls.SelectedItemView)">
+        <member name="M:OriginalUserControls.CTB_SubdivType.#ctor(System.Boolean,System.Int32,OriginalUserControls.SelectedItemView)">
             <summary>
-            Створення елементу з посадами.
+            Створення КомбоТріБоксу з типами підрозділів.
             </summary>
             <param name="isCheckBoxes">включає мультивибір в дереві</param>
             <param name="showFilterAfterNodeCount">Показувати поле фільтру після цієї кількості елементів в дереві</param>
             <param name="selectedItemView">Cпосіб відображення вибраного елементу</param>
         </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean)">
+        <member name="M:OriginalUserControls.CTB_SubdivType.FillTree(System.Data.SqlClient.SqlConnection)">
             <summary>
-            Функція наопвнення дерева в елементі, яке активне на даний момент
-            Політика безпеки вимкнена - дерево повне.
+            Функція наповнення дерева типами підрозділів
+            Наповнення відбуваєтсья з таблиці "DcSubdivisionType"
             </summary>
-            <param name="connToDb">Під"єднання до бази з даними</param>
-            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
+            <param name="connToDb">під"єднання до бази</param>
         </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32)">
+        <member name="M:OriginalUserControls.CTB_SubdivType.FillTree(System.Data.SqlClient.SqlConnection,System.String)">
             <summary>
-            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
-            Політика безпеки ввімкнена, дерево фільтруєтсья одним елементом
+            Функція наповнення дерева типами підрозділів
             </summary>
-            <param name="connToDb">Під"єднання до бази з даними</param>
-            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
-            <param name="filterNodeId">Політика безпеки: Id піддререва, що буде видиме в дереві</param>
+            <param name="connToDb">під"єднання до бази</param>
+            <param name="tableName">можна вказати таблицю, в якій зберігаютсья типи підрозділів</param>
         </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32[])">
-            <summary>
-            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
-            Політика безпеки ввімкнена, дерево фільтруєтсья масивом елементів
-            </summary>
-            <param name="connToDb">Під"єднання до бази з даними</param>
-            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
-            <param name="filterNodeIds">Політика безпеки: Id піддререв, що будуть видимі в дереві</param>
+        <member name="M:OriginalUserControls.CTB_SubdivType.DataBind(System.Data.SqlClient.SqlConnection,System.String)">
+             <summary>
+            Прив"язка до даних і створення таблиці і її наповнення для дерева
+             </summary>
         </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.DateTime)">
+        <member name="M:OriginalUserControls.CTB_SubdivType.TypeIsVirtual(System.Int32)">
             <summary>
-            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
-            Політика безпеки вимкнена - дерево повне.
+            Повертає значення віртуальний чи реальний підрозділ
             </summary>
-            <param name="connToDb">Під"єднання до бази з даними</param>
-            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
-            <param name="dateActuality">дата, на яку удуєтсья довідник</param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32,System.DateTime)">
-            <summary>
-            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
-            Політика безпеки ввімкнена, дерево фільтруєтсья одним елементом
-            </summary>
-            <param name="connToDb">Під"єднання до бази з даними</param>
-            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
-            <param name="filterNodeId">Політика безпеки: Id піддререва, що буде видиме в дереві</param>
-            <param name="dateActuality">дата, на яку удуєтсья довідник</param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32[],System.DateTime)">
-            <summary>
-            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
-            Політика безпеки ввімкнена, дерево фільтруєтсья масивом елементів
-            </summary>
-            <param name="connToDb">Під"єднання до бази з даними</param>
-            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
-            <param name="filterNodeIds">Політика безпеки: Id піддререв, що будуть видимі в дереві</param>
-            <param name="dateActuality">дата, на яку удуєтсья довідник</param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.CreateCodesForAllDuties(System.Data.DataRow,System.String,OriginalUserControls.TreeNodeExt,System.Data.DataTable,System.DateTime,System.Collections.Generic.List{OriginalUserControls.TreeNodeExt})">
-            <summary>
-            Пошук активних кодів для попередніх назв посади.
-            </summary>
-            <param name="dutiesRow"></param>
-            <param name="primaryKeyColumn"></param>
-            <param name="dutiesNode"></param>
-            <param name="dt_Duties_Full"></param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.CreateCodesForDuty(System.Int32,OriginalUserControls.TreeNodeExt,System.DateTime,System.Collections.Generic.List{OriginalUserControls.TreeNodeExt})">
-            <summary>
-            Створення кодів для Посади з RtDutiesId
-            </summary>
-            <param name="RtDutiesId"></param>
-            <param name="dutiesNode"></param>
-            <param name="dateActuality"></param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.CheckDateIn_DutiesCode_And_CodeActual(System.Data.DataRow)">
-            <summary>
-            перевірка чи немає конфліктів по датам між парами посада-код і самими кодами.
-            </summary>
-            <param name="RtDutiesCodeRow"></param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.GetActualCode(System.Int32,System.DateTime)">
-            <summary>
-            перевірка чи код не змінював назву і актуальний, якщо ні - пошук і повернення актуаального коду
-            </summary>
-        </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.DutiesIsActual(System.Data.DataRow,System.String,System.DateTime)">
-            <summary>
-            Функція перевіряє чи активна посада в певну дату.
-            true - активна, false - неактивна
-            </summary>
-            <param name="row"></param>
-            <param name="primaryKeyColumn"></param>
-            <param name="checkDate"></param>
+            <param name="typeId">Ід типу підрозділа</param>
             <returns></returns>
         </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.DutiesCodeIsActual(System.Data.DataRow,System.DateTime)">
+        <member name="T:OriginalUserControls.Properties.Resources">
             <summary>
-            Функція перевіряє чи актуальна пара "посада-код" по даті на момент дати @date
-            якщо актуальна - True, інакше - False
-            </summary>
-            <param name="RtDutiesCodeRow"></param>
-            <param name="date"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.CodeIsActual(System.Data.DataRow,System.DateTime)">
-            <summary>
-            Функція перевіряє чи актуальний код по даті на момент дати @date
-            якщо актуальна - True, інакше - False
-            </summary>
-            <param name="RtDutiesCodeRow"></param>
-            <param name="date"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OriginalUserControls.CTB_DutiesAndCode.GetCodeRow(System.Int32)">
-            <summary>
-            Функція повертає рядок Коду по Id коду
-            NULL ніколи не повертає, якщо незнайденл код - то помилка
-            </summary>
-            <param name="RtCodeId"></param>
-            <returns></returns>
-        </member>
-        <member name="T:OriginalUserControls.TreeViewExt">
-            <summary>
-            Класс для уникнення проблеми з подвійним кліком.
-            В звичайному дереві при подвійному кліку завжди проставлялася галочка
-            а галочки в деяких нодах треба зоборонити
+              A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
-        <member name="M:OriginalUserControls.TreeViewExt.FindByEssenceId(System.Int32)">
+        <member name="P:OriginalUserControls.Properties.Resources.ResourceManager">
             <summary>
-            Пошук Ноди по Id (Id сутності)
-            Тобто знайти можна тільки ті ноди, яким выдповідає сутність.
-            Якщо нода не знайдена - повертає Null
-            </summary>
-            <param name="nodeId">Id сутності</param>
-            <returns></returns>
-        </member>
-        <member name="E:OriginalUserControls.TreeViewExt.NodeExtDoubleClick">
-            <summary>
-            Подія - подвійний клік по ноду.
-            замінює стандартний подвійний клік, стандартний заблокований
+              Returns the cached ResourceManager instance used by this class.
             </summary>
         </member>
-        <member name="T:OriginalUserControls.NodeExtDelegate">
+        <member name="P:OriginalUserControls.Properties.Resources.Culture">
             <summary>
-            делегат для реалізації події подвійного кліку. передає нод по якому клікнули.
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
             </summary>
-            <param name="node"></param>
         </member>
-        <member name="M:OriginalUserControls.Actualite.getActualiteName(System.Data.DataRow)">
+        <member name="P:OriginalUserControls.Properties.Resources.check_all">
             <summary>
-            Повертає актуальність для рядка з полем vcActualityType
+              Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
-            <param name="row">рядок</param>
-            <returns>enum (перелік)</returns>
         </member>
-        <member name="M:OriginalUserControls.Actualite.getActualiteCode(OriginalUserControls.enActualite)">
+        <member name="P:OriginalUserControls.Properties.Resources.check_all3">
             <summary>
-            повертає код актуальності за іменем
+              Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
-            <param name="actualite">ім"я з перечислення enActualite</param>
-            <returns>0 або 1</returns>
+        </member>
+        <member name="P:OriginalUserControls.Properties.Resources.select">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:OriginalUserControls.SelectedTreeItem">
+            <summary>
+            Клас описує вибраний елемент в дереві.
+            Для сутностей, елементи яких складаються з багатьох нод
+            </summary>
+        </member>
+        <member name="F:OriginalUserControls.SelectedTreeItem.Id">
+            <summary>
+            Id обраного елементу в дереві (не ноди, а всього елементу)
+            </summary>
+        </member>
+        <member name="F:OriginalUserControls.SelectedTreeItem.FullName">
+            <summary>
+            Повна назва сутності (назва з "RT таблиці")
+            
+            Приклад з посадами: нода = інженер, піднода = метролог, підпіднода - головний
+            NodeName = "головний"
+            CompoundName = "інженер\\метролог\\головний"
+            FullName = "головний інженер метролог"
+            ShortName = "гол. інж. метрол."
+            </summary>
+        </member>
+        <member name="F:OriginalUserControls.SelectedTreeItem.ShortName">
+            <summary>
+            Скорочена назва сутності (назва з "RT таблиці")
+            
+            Приклад з посадами: нода = інженер, піднода = метролог, підпіднода - головний
+            NodeName = "головний"
+            CompoundName = "інженер\\метролог\\головний"
+            FullName = "головний інженер метролог"
+            ShortName = "гол. інж. метрол."
+            </summary>
+        </member>
+        <member name="F:OriginalUserControls.SelectedTreeItem.Abbreviation">
+            <summary>
+            Аббревіатура сутності (назва з "RT таблиці")
+            
+            Приклад з посадами: нода = інженер, піднода = метролог, підпіднода - головний
+            NodeName = "головний"
+            CompoundName = "інженер\\метролог\\головний"
+            FullName = "головний інженер метролог"
+            ShortName = "гол. інж. метрол."
+            </summary>
+        </member>
+        <member name="F:OriginalUserControls.SelectedTreeItem.NodeName">
+            <summary>
+            Назва ноди в дереві.
+            </summary>
+        </member>
+        <member name="F:OriginalUserControls.SelectedTreeItem.CompoundName">
+            <summary>
+            Складена назва обраної сутності в дереві.
+            Назва складаєтсья назв нодів
+            </summary>
+        </member>
+        <member name="M:OriginalUserControls.SelectedTreeItem.#ctor(System.Int32,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Створення сутності для вибраної ноди
+            </summary>
+            <param name="id">Id сутності</param>
+            <param name="text">Назва сутності з RT табл</param>
+            <param name="compoundName">Складена з нодів назва сутності </param>
+            <param name="fullName">Повна назва сутності (з RT таблиці) </param>
+            <param name="shortName">Скорочена назва сутності (з RT таблиці) </param>
+            <param name="abbreviation">Абревіатура сутності (з RT таблиці) </param>
+        </member>
+        <member name="T:OriginalUserControls.SelectedItemView">
+            <summary>
+            перечислення, що показує, які бувають варіанти відображення вибраного елементу в ComboTreeBox
+            Тобто після вибору в комбобоксі відображається назва ноду, складена назва чи "повна назва" з RT таблиці
+            </summary>
         </member>
         <member name="M:OriginalUserControls.TreeManager.GetQuery(System.String,System.Collections.Generic.List{OriginalUserControls.TreeManager.ColumnsNameInfo},System.String,System.String,System.String,System.String)">
             <summary>
@@ -1455,37 +1562,6 @@
             Ім"я поля, що містить Назву
             </summary>
         </member>
-        <member name="T:OriginalUserControls.SelectedItemChangedDelegate">
-            <summary>
-            Делегат для реалізації події зміни значення в контролі
-            </summary>
-            <param name="sender">Делегат відправляє один параметр - об"єкт типу ComboTreeBox_Advanced, який показує, який контрол відправив подію</param>
-        </member>
-        <member name="T:OriginalUserControls.ParallelNodeIsNullException">
-            <summary>
-            Помилка, що виникає, коли в ноді не прописаний відповідний паралельний нод з "паралельного" дерева
-            </summary>
-        </member>
-        <member name="T:OriginalUserControls.CanNotBeSetValueException">
-            <summary>
-            переривання виникає, якщо неможливо встановити деякі значення для контролу за допомогою функцій SetSelectedOneItem і SetSelectedmanyItems
-            </summary>
-        </member>
-        <member name="P:OriginalUserControls.CanNotBeSetValueException.ValuesId">
-            <summary>
-            Значення Id, які не вдалося знайтив  контролі
-            </summary>
-        </member>
-        <member name="P:OriginalUserControls.CanNotBeSetValueException.ControlType">
-            <summary>
-            Ім"я контрола, в якому не вдалося встановити значення
-            </summary>
-        </member>
-        <member name="P:OriginalUserControls.CanNotBeSetValueException.Message">
-            <summary>
-            Повідомлення переривання
-            </summary>
-        </member>
         <member name="T:OriginalUserControls.TreeNodeExt">
             <summary>
             Розширений варіант TreeNode
@@ -1561,109 +1637,33 @@
             Одразу запам"ятовуєтсья колір в SavedBackColor
             </summary>
         </member>
-        <member name="T:OriginalUserControls.CTB_Duties">
+        <member name="T:OriginalUserControls.TreeViewExt">
             <summary>
-            Елемент ComboTreeBox з посадами!
+            Класс для уникнення проблеми з подвійним кліком.
+            В звичайному дереві при подвійному кліку завжди проставлялася галочка
+            а галочки в деяких нодах треба зоборонити
             </summary>
         </member>
-        <member name="M:OriginalUserControls.CTB_Duties.#ctor">
+        <member name="M:OriginalUserControls.TreeViewExt.FindByEssenceId(System.Int32)">
             <summary>
-            Створення елементу з посадами.
-            Параметри по замовченню:
-            1. без мультивибору.
-            2. Фільтр показуєтсья якщо елементів в деерві більше 20
-            3. Cпосіб відображення вибраного елементу - ім"я ноди
+            Пошук Ноди по Id (Id сутності)
+            Тобто знайти можна тільки ті ноди, яким выдповідає сутність.
+            Якщо нода не знайдена - повертає Null
+            </summary>
+            <param name="nodeId">Id сутності</param>
+            <returns></returns>
+        </member>
+        <member name="E:OriginalUserControls.TreeViewExt.NodeExtDoubleClick">
+            <summary>
+            Подія - подвійний клік по ноду.
+            замінює стандартний подвійний клік, стандартний заблокований
             </summary>
         </member>
-        <member name="M:OriginalUserControls.CTB_Duties.#ctor(System.Boolean)">
+        <member name="T:OriginalUserControls.NodeExtDelegate">
             <summary>
-            Створення елементу з посадами.
-            Параметри по замовченню:
-            2. Фільтр показуєтсья якщо елементів в деерві більше 20
-            3. Cпосіб відображення вибраного елементу - ім"я ноди
+            делегат для реалізації події подвійного кліку. передає нод по якому клікнули.
             </summary>
-            <param name="isCheckBoxes">вмикає мультивибір в дереві</param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_Duties.#ctor(System.Boolean,System.Int32)">
-            <summary>
-            Створення елементу з посадами.
-            Параметри по замовченню:
-            3. Cпосіб відображення вибраного елементу - ім"я ноди
-            </summary>
-            <param name="isCheckBoxes">вмикає мультивибір в дереві</param>
-            <param name="showFilterAfterNodeCount">Показувати поле фільтру після цієї кількості елементів в дереві</param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_Duties.#ctor(System.Boolean,OriginalUserControls.SelectedItemView)">
-            <summary>
-            Створення елементу з посадами.
-            Параметри по замовченню:
-            2. Фільтр показуєтсья якщо елементів в деерві більше 20
-            </summary>
-            <param name="isCheckBoxes">включає мультивибір в дереві</param>
-            <param name="selectedItemView">Cпосіб відображення вибраного елементу</param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_Duties.#ctor(System.Boolean,System.Int32,OriginalUserControls.SelectedItemView)">
-            <summary>
-            Створення елементу з посадами.
-            </summary>
-            <param name="isCheckBoxes">включає мультивибір в дереві</param>
-            <param name="showFilterAfterNodeCount">Показувати поле фільтру після цієї кількості елементів в дереві</param>
-            <param name="selectedItemView">Cпосіб відображення вибраного елементу</param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_Duties.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean)">
-            <summary>
-            Функція наопвнення дерева в елементі, на сьогоднішній день
-            Політика безпеки (фільтрація повного дерева) вимкнена
-            </summary>
-            <param name="connToDb">Під"єднання до бази з даними</param>
-            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_Duties.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32)">
-            <summary>
-            Функція наопвнення дерева в елементі, на сьогоднішній день
-            Політика безпеки ввімкнена, дерево фільтруєтсья одним елементом
-            </summary>
-            <param name="connToDb">Під"єднання до бази з даними</param>
-            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
-            <param name="filterNodeId">Політика безпеки: Id піддререва, що буде видиме в дереві</param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_Duties.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32[])">
-            <summary>
-            Функція наопвнення дерева в елементі, на сьогоднішній день
-            Політика безпеки ввімкнена, дерево фільтруєтсья масивом елементів
-            </summary>
-            <param name="connToDb">Під"єднання до бази з даними</param>
-            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
-            <param name="filterNodeIds">Політика безпеки: Id піддререв, що будуть видимі в дереві</param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_Duties.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.DateTime)">
-            <summary>
-            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
-            Політика безпеки (фільтрація повного дерева) вимкнена
-            </summary>
-            <param name="connToDb">Під"єднання до бази з даними</param>
-            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
-            <param name="dateActuality">дата, на яку удуєтсья довідник</param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_Duties.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32,System.DateTime)">
-            <summary>
-            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
-            Політика безпеки ввімкнена, дерево фільтруєтсья одним елементом
-            </summary>
-            <param name="connToDb">Під"єднання до бази з даними</param>
-            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
-            <param name="filterNodeId">Політика безпеки: Id піддререва, що буде видиме в дереві</param>
-            <param name="dateActuality">дата, на яку удуєтсья довідник</param>
-        </member>
-        <member name="M:OriginalUserControls.CTB_Duties.FillTree(System.Data.SqlClient.SqlConnection,System.Boolean,System.Int32[],System.DateTime)">
-            <summary>
-            Функція наопвнення дерева в елементі, яке було активним на момент часу dateActuality
-            Політика безпеки ввімкнена, дерево фільтруєтсья масивом елементів
-            </summary>
-            <param name="connToDb">Під"єднання до бази з даними</param>
-            <param name="IsOnlyKPI">Фільтр - вказує, що посади потрібно будувати тільки ті що в КПІ.</param>
-            <param name="filterNodeIds">Політика безпеки: Id піддререв, що будуть видимі в дереві</param>
-            <param name="dateActuality">дата, на яку удуєтсья довідник</param>
+            <param name="node"></param>
         </member>
     </members>
 </doc>

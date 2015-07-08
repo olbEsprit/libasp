@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="lib_asp.WebForm1" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -19,18 +20,59 @@
                 rel="stylesheet" type="text/css" />
             <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"
                 type="text/javascript"></script>
+            <script type="text/javascript">
+                function pageLoad() {
+                    var chngPosition = $find('CTB1_DropDownExtender')._dropPopupPopupBehavior;
+                    chngPosition.set_positioningMode(2);
 
-            <asp:TreeView ID="nodenod" runat="server" ShowLines="true" ShowCheckBoxes="All" OnTreeNodeCheckChanged="nodenod_TreeNodeCheckChanged">
-            </asp:TreeView>
+                }
+
+            </script>
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
+            <div style="height: 200px; width: 300px; overflow: auto;">
+
+                <asp:TextBox ID="CTB1" runat="server" ReadOnly="true"></asp:TextBox>
+                <asp:Panel ID="ComboTreeBox1" runat="server">
+                    <asp:TreeView ID="nodenod" runat="server" ShowLines="true" ShowCheckBoxes="All" OnTreeNodeCheckChanged="nodenod_TreeNodeCheckChanged">
+                    </asp:TreeView>
+                    <asp:Button ID="Button1" Text="Submit" runat="server" OnClick="Submit" /><br />
+                    <asp:TextBox ID="txtData" runat="server"></asp:TextBox>
+                </asp:Panel>
+            </div>
             <br />
-
+            <cc1:DropDownExtender ID="DropDownExtender1" runat="server" TargetControlID="CTB1" DropDownControlID="ComboTreeBox1">
+            </cc1:DropDownExtender>
         </div>
 
-        <asp:Button ID="Button1" Text="Submit" runat="server" OnClick="Submit" />
 
-        <p> </p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <p></p>
         <h4>Filter:</h4>
-        <asp:TextBox ID="txtData" runat="server"></asp:TextBox>
+
     </form>
 
     <script type="text/javascript">

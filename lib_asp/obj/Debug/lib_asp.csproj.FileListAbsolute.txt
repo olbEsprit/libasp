@@ -24,3 +24,8 @@ F:\lib_asp\lib_asp\bin\System.Web.WebPages.Deployment.xml
 F:\lib_asp\lib_asp\bin\System.Web.WebPages.Razor.xml
 F:\lib_asp\lib_asp\obj\Debug\lib_asp.dll
 F:\lib_asp\lib_asp\obj\Debug\lib_asp.pdb
+C:\Users\Esprit\Documents\Visual Studio 2012\Projects\lib_asp\lib_asp\bin\lib_asp.dll.config
+C:\Users\Esprit\Documents\Visual Studio 2012\Projects\lib_asp\lib_asp\bin\AjaxControlToolkit.dll
+C:\Users\Esprit\Documents\Visual Studio 2012\Projects\lib_asp\lib_asp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Esprit\Documents\Visual Studio 2012\Projects\lib_asp\lib_asp\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Esprit\Documents\Visual Studio 2012\Projects\lib_asp\lib_asp\bin\OriginalUserControls v3.3.pdb
