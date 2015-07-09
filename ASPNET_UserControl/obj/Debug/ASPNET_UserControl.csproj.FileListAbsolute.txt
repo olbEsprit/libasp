@@ -1,0 +1,5 @@
+F:\lib_asp\ASPNET_UserControl\obj\Debug\ASPNET_UserControl.csprojResolveAssemblyReference.cache
+F:\lib_asp\ASPNET_UserControl\bin\Debug\ASPNET_UserControl.dll
+F:\lib_asp\ASPNET_UserControl\bin\Debug\ASPNET_UserControl.pdb
+F:\lib_asp\ASPNET_UserControl\obj\Debug\ASPNET_UserControl.dll
+F:\lib_asp\ASPNET_UserControl\obj\Debug\ASPNET_UserControl.pdb

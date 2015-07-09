@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Web.Services;
 using OriginalUserControls;
 using System.Text;
+using ASPNET_UserControl;
 
 namespace lib_asp
 {
@@ -47,9 +48,11 @@ namespace lib_asp
                     }
                 }
                 Copy(nodenod, StoredTree);
-                //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('WTF');", true);
+                //var Test = new LibCore();
+                
             }
             isBeg = false;
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "asd", "$('#Button1').click();", true);
         }
 
         public void nodenod_TreeNodeCheckChanged(object sender, TreeNodeEventArgs e)
