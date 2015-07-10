@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace OriginalUserControls
+namespace WebUserControl
 {
     /// <summary>
     /// Класс для уникнення проблеми з подвійним кліком.
@@ -18,8 +18,7 @@ namespace OriginalUserControls
         /// замінює стандартний подвійний клік, стандартний заблокований
         /// </summary>
         public event NodeExtDelegate NodeExtDoubleClick;
-
-        #region Опис пролеми і вирішення
+        #region Опис проблеми і вирішення
         /*
         У меня есть TreeView с включенными checkboxes. Мне нужно запретить для некоторых узлов возможность поставить галочку. 
         Самое простое решение я выбрал такое – как только ставится галочка (checked = true) - я сразу ее снимаю: 
@@ -29,7 +28,7 @@ namespace OriginalUserControls
                 e.Node.Checked = false;
         }
         Но такой код неадекватно работает, если произвести двойной клик по checkbox’у
-        После двойного клика галочка ставиться. Кажется что при двойном клике функция treeView1_AfterCheck срабатывает только после первого клика,
+        После двойного клика галочка ставится. Кажется что при двойном клике функция treeView1_AfterCheck срабатывает только после первого клика,
         а после второго нет (в этот момент появляется галочка) 
         А если кликнуть третий раз (даже спустя несколько секунд и по другому ноду) – то второй и третий клик срабатывают как doubleCklick
          
@@ -37,6 +36,7 @@ namespace OriginalUserControls
         І штучно запускаєтсья розкриття дерева.         
         */
         #endregion
+        /*
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == 0x203)
@@ -53,7 +53,7 @@ namespace OriginalUserControls
                     if (NodeExtDoubleClick != null)
                         NodeExtDoubleClick.Invoke((TreeNodeExt)editNode);
 
-                    //Щоб в деерві без мультивибору можна було по подвійному кліку вибрати елемент.
+                    //Щоб в дереві без мультивибору можна було по подвійному кліку вибрати елемент.
                     //Ми тут перехопили подвійний клік і вручну його запустили. Основна проблема вирішуєтсья таким чином. І дабл клік працює.
                     MouseEventArgs mea = new MouseEventArgs(System.Windows.Forms.MouseButtons.Left, 2, p.X, p.Y, 0);
                     this.OnMouseDoubleClick(mea);
@@ -63,7 +63,7 @@ namespace OriginalUserControls
             else
                 base.WndProc(ref m);
         }
-
+        */
 
         /// <summary>
         /// Пошук Ноди по Id (Id сутності)

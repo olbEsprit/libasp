@@ -7,7 +7,7 @@
     <ProjectGuid>{8BF1065C-E244-4D7E-A374-E496BDEA3CDB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ASPNET_UserControl</RootNamespace>
+    <RootNamespace>WebUserControls</RootNamespace>
     <AssemblyName>ASPNET_UserControl</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -33,8 +33,11 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,8 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LibCore.cs" />
+    <Compile Include="TreeRepresentation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectedTreeItem.cs" />
+    <Compile Include="TreeNodeExt.cs" />
+    <Compile Include="TreeViewExt.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

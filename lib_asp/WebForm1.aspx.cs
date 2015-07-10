@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Services;
-using OriginalUserControls;
+using WebUserControl;
 using System.Text;
-using ASPNET_UserControl;
+//using ASPNET_UserControl;
 
 namespace lib_asp
 {
@@ -19,6 +19,15 @@ namespace lib_asp
         public static bool isBeg = true;
         public static string message = "";
         public static string filter = "";
+
+        #region Library testing
+
+        public static TreeRepesentation LibTree = new TreeRepesentation();
+        
+
+        #endregion
+
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,7 +58,11 @@ namespace lib_asp
                 }
                 Copy(nodenod, StoredTree);
                 //var Test = new LibCore();
-                
+                #region Library testing
+                var Test = LibTree.GetFullTree();
+                #endregion
+
+
             }
             isBeg = false;
             ClientScript.RegisterClientScriptBlock(this.GetType(), "asd", "$('#Button1').click();", true);
