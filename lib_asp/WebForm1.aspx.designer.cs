@@ -22,13 +22,22 @@ namespace lib_asp {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// nodenod control.
+        /// sampleTree control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TreeView nodenod;
+        protected global::lib_asp.Lib.TreeViewExt sampleTree;
+        
+        /// <summary>
+        /// lblSelectedNode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSelectedNode;
         
         /// <summary>
         /// Button1 control.
@@ -47,23 +56,5 @@ namespace lib_asp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtData;
-        
-        /// <summary>
-        /// sampleTree control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::lib_asp.Lib.TreeViewExt sampleTree;
-        
-        /// <summary>
-        /// lblSelectedNode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSelectedNode;
     }
 }

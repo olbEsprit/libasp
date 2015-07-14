@@ -13,50 +13,25 @@ namespace lib_asp
     public partial class WebForm1 : System.Web.UI.Page
     {
 
-        public static TreeView TemporaryTree = new TreeView();
-        public static TreeView StoredTree = new TreeView();
+        public static TreeViewExt TemporaryTree = new TreeViewExt();
+        public static TreeViewExt StoredTree = new TreeViewExt();
         public static bool isBeg = true;
         public static string message = "";
         public static string filter = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (isBeg)
-            {
-                nodenod.Nodes.Add(new TreeNode("Home1", "Home1"));
-                nodenod.Nodes.Add(new TreeNode("Home2", "Home2"));
-                nodenod.Nodes.Add(new TreeNode("Home3", "Home3"));
-                nodenod.Nodes.Add(new TreeNode("Mango", "Fruit1"));
-                nodenod.Nodes.Add(new TreeNode("Apple", "Fruit2"));
-                nodenod.Nodes.Add(new TreeNode("Pineapple", "Fruit3"));
-                nodenod.Nodes.Add(new TreeNode("Orange", "Fruit4"));
-                nodenod.Nodes.Add(new TreeNode("Grapes", "Fruit5"));
-                foreach (TreeNode node in nodenod.Nodes)
-                {
-                    if (node.Text == "Mango")
-                    {
-                        node.ChildNodes.Add(new TreeNode("WOW", "SubNode"));
-                    }
-                }
-                foreach (TreeNode node in nodenod.Nodes)
-                {
-                    if (node.Text == "Home3")
-                    {
-                        node.ChildNodes.Add(new TreeNode("Child1", "SubNode1"));
-                        node.ChildNodes.Add(new TreeNode("Child2", "SubNode1"));
-                    }
-                }
-                Copy(nodenod, StoredTree);
-
-            }
-
             //Tree init
             if (!IsPostBack)
             {
                 PopulateTree();
             }
-
-
+            
+            if (isBeg)
+            {
+                Copy(sampleTree, StoredTree);
+            }
+            
             isBeg = false;
             ClientScript.RegisterClientScriptBlock(this.GetType(), "asd", "$('#Button1').click();", true);
         }
@@ -69,7 +44,7 @@ namespace lib_asp
 
             sampleTree.Nodes.Add(root);
 
-            // Creating some fake nodes (you would of course be using real data)
+            // Creating some fake nodes for testing purposes
             for (int i = 0; i < 10; i++)
             {
                 TreeNodeExt child = new TreeNodeExt();
@@ -77,8 +52,8 @@ namespace lib_asp
                 child.NodeId = i;               // Saved in ViewState
                 child.NodeType = "Type " + i;   // Saved in ViewState
                 child.Value = child.NodeType;
-                doublechild.NodeId = i;               // Saved in ViewState
-                doublechild.NodeType = "Child " + i;   // Saved in ViewState
+                doublechild.NodeId = i;   
+                doublechild.NodeType = "Child " + i;   
                 doublechild.Value = doublechild.NodeType;
                 root.ChildNodes.Add(child);
                 child.ChildNodes.Add(doublechild);
@@ -92,7 +67,7 @@ namespace lib_asp
         }
 
 
-        public void nodenod_TreeNodeCheckChanged(object sender, TreeNodeEventArgs e)
+        public void sampleTree_TreeNodeCheckChanged(object sender, TreeNodeEventArgs e)
         {
             message = "";
             foreach (TreeNodeExt t in sampleTree.Nodes)
@@ -125,38 +100,48 @@ namespace lib_asp
         protected void Submit(object sender, EventArgs e)
         {
             filter = txtData.Text;
-            if(StoredTree.Nodes.Count == nodenod.Nodes.Count)
+            if(StoredTree.Nodes.Count == sampleTree.Nodes.Count)
             {
                 StoredTree.Nodes.Clear();
-                Copy(nodenod, StoredTree);
+                Copy(sampleTree, StoredTree);
             }
             if (filter != "")
             { 
-                foreach (TreeNode node in nodenod.Nodes)
+                foreach (TreeNodeExt node in sampleTree.Nodes)
                 {
-                    if (node.Text == filter || node.Text.Contains(filter))
+                    if (node.NodeType == filter || node.NodeType.Contains(filter))
                     {
-                        TemporaryTree.Nodes.Add(new TreeNode(node.Text, node.Value));
+                        TemporaryTree.Nodes.Add(new TreeNodeExt
+                        {
+                            NodeId = node.NodeId,
+                            NodeType = node.NodeType,
+                            Value = node.Value
+                        });
                     }
                     else
                     {
-                        foreach(TreeNode Child in node.ChildNodes)
+                        foreach(TreeNodeExt Child in node.ChildNodes)
                         {
-                            if(Child.Text == filter || Child.Text.Contains(filter))
+                            if(Child.NodeType == filter || Child.NodeType.Contains(filter))
                             {
-                                TemporaryTree.Nodes.Add(new TreeNode(Child.Text, Child.Value));
+                                TemporaryTree.Nodes.Add(new TreeNodeExt
+                                {
+                                    NodeId = Child.NodeId,
+                                    NodeType = Child.NodeType,
+                                    Value = Child.Value
+                                });
                             }
                         }
                     }
                 }
-                nodenod.Nodes.Clear();
-                Copy(TemporaryTree, nodenod);
+                sampleTree.Nodes.Clear();
+                Copy(TemporaryTree, sampleTree);
                 TemporaryTree.Nodes.Clear();
             }
             else
             {
-                nodenod.Nodes.Clear();
-                Copy(StoredTree, nodenod);      
+                sampleTree.Nodes.Clear();
+                Copy(StoredTree, sampleTree);      
             }
             txtData.Text = "";
             
@@ -177,12 +162,17 @@ namespace lib_asp
         }
 
 
-        public void Copy(TreeView treeview1, TreeView treeview2)
+        public void Copy(TreeViewExt treeview1, TreeViewExt treeview2)
         {
-            TreeNode newTn;
-            foreach (TreeNode tn in treeview1.Nodes)
+            TreeNodeExt newTn;
+            foreach (TreeNodeExt tn in treeview1.Nodes)
             {
-                newTn = new TreeNode(tn.Text, tn.Value);
+                newTn = new TreeNodeExt
+                {
+                    NodeId = tn.NodeId,
+                    NodeType = tn.NodeType,
+                    Value = tn.Value
+                };
                 if(tn.Checked)
                 {
                     newTn.Checked = true;
@@ -192,17 +182,23 @@ namespace lib_asp
             }
         }
 
-        public void CopyChilds(TreeNode parent, TreeNode willCopied)
+        public void CopyChilds(TreeNodeExt parent, TreeNodeExt willCopied)
         {
-            TreeNode newTn;
-            foreach (TreeNode tn in willCopied.ChildNodes)
+            TreeNodeExt newTn;
+            foreach (TreeNodeExt tn in willCopied.ChildNodes)
             {
-                newTn = new TreeNode(tn.Text, tn.Value);
+                newTn = new TreeNodeExt
+                {
+                    NodeId = tn.NodeId,
+                    NodeType = tn.NodeType,
+                    Value = tn.Value
+                };
                 if (tn.Checked)
                 {
                     newTn.Checked = true;
                 }
                 parent.ChildNodes.Add(newTn);
+                CopyChilds(newTn, tn);
             }
         }
 

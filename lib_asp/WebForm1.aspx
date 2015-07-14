@@ -23,9 +23,10 @@
         <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"
             type="text/javascript"></script>
         <div class="menu" style="display: none;">
-            <asp:TreeView ID="nodenod" runat="server" ShowLines="true" ShowCheckBoxes="All" OnTreeNodeCheckChanged="nodenod_TreeNodeCheckChanged">
-            </asp:TreeView>
 
+            <customControl:TreeViewExt ID="sampleTree" runat="server" ShowLines="true" ShowCheckBoxes="All" OnTreeNodeCheckChanged="sampleTree_TreeNodeCheckChanged">
+            </customControl:TreeViewExt>
+            <asp:Label ID="lblSelectedNode" runat="server"></asp:Label>
 
             <br />
 
@@ -37,17 +38,13 @@
             <h4>Filter:</h4>
             <asp:TextBox ID="txtData" runat="server"></asp:TextBox>
 
-
+            <br />
 
 
 
 
         </div>
 
-        <customControl:TreeViewExt ID="sampleTree" runat="server" ShowLines="true" ShowCheckBoxes="All" OnTreeNodeCheckChanged="nodenod_TreeNodeCheckChanged">
-
-        </customControl:TreeViewExt>
-        <asp:Label ID="lblSelectedNode" runat="server" ></asp:Label>
     </form>
 
     <script type="text/javascript">
