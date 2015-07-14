@@ -5,9 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Services;
-using WebUserControl;
 using System.Text;
-//using ASPNET_UserControl;
+using lib_asp.Lib;
 
 namespace lib_asp
 {
@@ -19,15 +18,6 @@ namespace lib_asp
         public static bool isBeg = true;
         public static string message = "";
         public static string filter = "";
-
-        #region Library testing
-
-        public static TreeRepesentation LibTree = new TreeRepesentation();
-        
-
-        #endregion
-
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -57,16 +47,45 @@ namespace lib_asp
                     }
                 }
                 Copy(nodenod, StoredTree);
-                //var Test = new LibCore();
-                #region Library testing
-                var Test = LibTree.GetFullTree();
-                #endregion
-
 
             }
+
+            //Tree init
+            if (!IsPostBack)
+            {
+                PopulateTree();
+            }
+
+
             isBeg = false;
             ClientScript.RegisterClientScriptBlock(this.GetType(), "asd", "$('#Button1').click();", true);
         }
+
+        private void PopulateTree()
+        {
+            sampleTree.Nodes.Clear();
+            TreeNodeExt root = new TreeNodeExt();
+            root.Value = "root node";
+
+            sampleTree.Nodes.Add(root);
+
+            // Creating some fake nodes (you would of course be using real data)
+            for (int i = 0; i < 10; i++)
+            {
+                TreeNodeExt child = new TreeNodeExt();
+                child.NodeId = i;               // Saved in ViewState
+                child.NodeType = "Type " + i;   // Saved in ViewState
+                child.Value = child.NodeType;
+                root.ChildNodes.Add(child);
+            }
+        }
+
+        protected void sampleTree_SelectedNodeChanged(object sender, EventArgs e)
+        {
+            TreeViewExt cTreeView = (TreeViewExt)sender;
+            lblSelectedNode.Text = ((TreeNodeExt)cTreeView.SelectedNode).NodeType;
+        }
+
 
         public void nodenod_TreeNodeCheckChanged(object sender, TreeNodeEventArgs e)
         {

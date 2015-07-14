@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_asp", "lib_asp\lib_asp.csproj", "{31E705B6-28CB-458B-BF02-BC05B30BC6DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNET_UserControl", "ASPNET_UserControl\ASPNET_UserControl.csproj", "{8BF1065C-E244-4D7E-A374-E496BDEA3CDB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{31E705B6-28CB-458B-BF02-BC05B30BC6DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31E705B6-28CB-458B-BF02-BC05B30BC6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31E705B6-28CB-458B-BF02-BC05B30BC6DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8BF1065C-E244-4D7E-A374-E496BDEA3CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8BF1065C-E244-4D7E-A374-E496BDEA3CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8BF1065C-E244-4D7E-A374-E496BDEA3CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8BF1065C-E244-4D7E-A374-E496BDEA3CDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

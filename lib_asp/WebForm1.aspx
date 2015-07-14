@@ -1,10 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="lib_asp.WebForm1" %>
-
+<%@ Register TagPrefix="customControl" Assembly="lib_asp" Namespace="lib_asp.Lib"  %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>TreeView</title>
 </head>
 <body>
 
@@ -36,9 +36,18 @@
             <p></p>
             <h4>Filter:</h4>
             <asp:TextBox ID="txtData" runat="server"></asp:TextBox>
+
+
+
+
+
+
         </div>
 
+        <customControl:TreeViewExt ID="sampleTree" runat="server" onselectednodechanged="sampleTree_SelectedNodeChanged">
 
+        </customControl:TreeViewExt>
+        <asp:Label ID="lblSelectedNode" runat="server" ></asp:Label>
     </form>
 
     <script type="text/javascript">
