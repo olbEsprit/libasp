@@ -44,7 +44,7 @@
 
         </div>
 
-        <customControl:TreeViewExt ID="sampleTree" runat="server" onselectednodechanged="sampleTree_SelectedNodeChanged">
+        <customControl:TreeViewExt ID="sampleTree" runat="server" ShowLines="true" ShowCheckBoxes="All" OnTreeNodeCheckChanged="nodenod_TreeNodeCheckChanged">
 
         </customControl:TreeViewExt>
         <asp:Label ID="lblSelectedNode" runat="server" ></asp:Label>

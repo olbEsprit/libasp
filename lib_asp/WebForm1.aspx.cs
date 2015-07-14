@@ -73,10 +73,15 @@ namespace lib_asp
             for (int i = 0; i < 10; i++)
             {
                 TreeNodeExt child = new TreeNodeExt();
+                TreeNodeExt doublechild = new TreeNodeExt();
                 child.NodeId = i;               // Saved in ViewState
                 child.NodeType = "Type " + i;   // Saved in ViewState
                 child.Value = child.NodeType;
+                doublechild.NodeId = i;               // Saved in ViewState
+                doublechild.NodeType = "Child " + i;   // Saved in ViewState
+                doublechild.Value = doublechild.NodeType;
                 root.ChildNodes.Add(child);
+                child.ChildNodes.Add(doublechild);
             }
         }
 
@@ -90,21 +95,31 @@ namespace lib_asp
         public void nodenod_TreeNodeCheckChanged(object sender, TreeNodeEventArgs e)
         {
             message = "";
-            foreach (TreeNode t in nodenod.Nodes)
+            foreach (TreeNodeExt t in sampleTree.Nodes)
             {
                 if (t.Checked == true)
                 {
                     message += t.Text.ToString() + "; ";
                 }
-                if (t.ChildNodes.Count > 0)
+                CheckChild(t);
+            }
+        }
+
+        public void CheckChild(TreeNodeExt t)
+        {
+            if (t.ChildNodes.Count > 0)
+            {
+                foreach (TreeNodeExt tt in t.ChildNodes)
                 {
-                    foreach (TreeNode tt in t.ChildNodes)
-                        if (tt.Checked == true)
-                        {
-                            message += tt.Text.ToString() + "; ";
-                        }     
+                    if (tt.Checked == true)
+                    {
+                        message += tt.Text.ToString() + "; ";
+                    }
+                    CheckChild(tt);
                 }
             }
+            
+
         }
 
         protected void Submit(object sender, EventArgs e)
