@@ -1,7 +1,5 @@
 c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\bin\lib_asp.dll
 c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\bin\lib_asp.pdb
-c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\bin\OriginalUserControls v3.3.dll
-c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\bin\OriginalUserControls v3.3.xml
 c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\obj\Debug\lib_asp.csprojResolveAssemblyReference.cache
 c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\obj\Debug\lib_asp.dll
 c:\users\esprit\documents\visual studio 2012\Projects\lib_asp\lib_asp\obj\Debug\lib_asp.pdb
@@ -9,7 +7,6 @@ C:\Users\Esprit\Documents\Visual Studio 2012\Projects\lib_asp\lib_asp\bin\lib_as
 C:\Users\Esprit\Documents\Visual Studio 2012\Projects\lib_asp\lib_asp\bin\AjaxControlToolkit.dll
 C:\Users\Esprit\Documents\Visual Studio 2012\Projects\lib_asp\lib_asp\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Esprit\Documents\Visual Studio 2012\Projects\lib_asp\lib_asp\bin\Microsoft.Web.Infrastructure.xml
-C:\Users\Esprit\Documents\Visual Studio 2012\Projects\lib_asp\lib_asp\bin\OriginalUserControls v3.3.pdb
 F:\lib_asp\lib_asp\bin\lib_asp.dll.config
 F:\lib_asp\lib_asp\bin\lib_asp.dll
 F:\lib_asp\lib_asp\bin\lib_asp.pdb

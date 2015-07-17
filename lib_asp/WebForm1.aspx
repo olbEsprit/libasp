@@ -33,7 +33,7 @@
             <h4>Filtered by:</h4>
             <output id="filter"></output>
             <asp:Button ID="Button1" Text="Submit" runat="server" OnClick="Submit" />
-
+            <asp:Button ID="Button2" Text="Make it rainbow" runat="server" OnClick="Color" />
             <p></p>
             <h4>Filter:</h4>
             <asp:TextBox ID="txtData" runat="server"></asp:TextBox>

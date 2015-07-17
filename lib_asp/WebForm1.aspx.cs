@@ -49,14 +49,22 @@ namespace lib_asp
             {
                 TreeNodeExt child = new TreeNodeExt();
                 TreeNodeExt doublechild = new TreeNodeExt();
+                TreeNodeExt ddoublechild = new TreeNodeExt();
                 child.NodeId = i;               // Saved in ViewState
                 child.NodeType = "Type " + i;   // Saved in ViewState
                 child.Value = child.NodeType;
                 doublechild.NodeId = i;   
                 doublechild.NodeType = "Child " + i;   
                 doublechild.Value = doublechild.NodeType;
+                ddoublechild.NodeId = i;
+                ddoublechild.NodeType = "Type Child " + i;
+                ddoublechild.Value = ddoublechild.NodeType;
                 root.ChildNodes.Add(child);
                 child.ChildNodes.Add(doublechild);
+                if (i%2==0)
+                {
+                    doublechild.ChildNodes.Add(ddoublechild);
+                }
             }
         }
 
@@ -99,17 +107,56 @@ namespace lib_asp
 
         protected void Submit(object sender, EventArgs e)
         {
+            TreeFilter();            
+        }
+
+        protected void Color(object sender, EventArgs e)
+        {
+            TreeColor();
+        }
+
+        public void TreeColor()
+        {
             filter = txtData.Text;
-            if(StoredTree.Nodes.Count == sampleTree.Nodes.Count)
+            if (filter != "")
+            {
+                foreach (TreeNodeExt node in sampleTree.Nodes)
+                {
+                    if (node.Text == filter || node.Text.Contains(filter))
+                    {
+                        sampleTree.NodeStyle.BackColor = System.Drawing.Color.Red;
+                        
+                    }
+                    ChildColor(node);
+                }
+            }
+        }
+
+        public void ChildColor(TreeNodeExt parent)
+        {
+            foreach (TreeNodeExt Child in parent.ChildNodes)
+            {
+                if (Child.Text == filter || Child.Text.Contains(filter))
+                {
+
+                }
+                ChildFilter(Child);
+            }
+        }
+
+        public void TreeFilter()
+        {
+            filter = txtData.Text;
+            if (StoredTree.Nodes.Count == sampleTree.Nodes.Count)
             {
                 StoredTree.Nodes.Clear();
                 Copy(sampleTree, StoredTree);
             }
             if (filter != "")
-            { 
+            {
                 foreach (TreeNodeExt node in sampleTree.Nodes)
                 {
-                    if (node.NodeType == filter || node.NodeType.Contains(filter))
+                    if (node.Text == filter || node.Text.Contains(filter))
                     {
                         TemporaryTree.Nodes.Add(new TreeNodeExt
                         {
@@ -118,21 +165,7 @@ namespace lib_asp
                             Value = node.Value
                         });
                     }
-                    else
-                    {
-                        foreach(TreeNodeExt Child in node.ChildNodes)
-                        {
-                            if(Child.NodeType == filter || Child.NodeType.Contains(filter))
-                            {
-                                TemporaryTree.Nodes.Add(new TreeNodeExt
-                                {
-                                    NodeId = Child.NodeId,
-                                    NodeType = Child.NodeType,
-                                    Value = Child.Value
-                                });
-                            }
-                        }
-                    }
+                    ChildFilter(node);
                 }
                 sampleTree.Nodes.Clear();
                 Copy(TemporaryTree, sampleTree);
@@ -141,10 +174,26 @@ namespace lib_asp
             else
             {
                 sampleTree.Nodes.Clear();
-                Copy(StoredTree, sampleTree);      
+                Copy(StoredTree, sampleTree);
             }
             txtData.Text = "";
-            
+        }
+
+        public void ChildFilter(TreeNodeExt parent)
+        {
+            foreach (TreeNodeExt Child in parent.ChildNodes)
+            {
+                if (Child.Text == filter || Child.Text.Contains(filter))
+                {
+                    TemporaryTree.Nodes.Add(new TreeNodeExt
+                    {
+                        NodeId = Child.NodeId,
+                        NodeType = Child.NodeType,
+                        Value = Child.Value
+                    });
+                }
+                ChildFilter(Child);
+            }
         }
 
 
